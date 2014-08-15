@@ -32,6 +32,12 @@ set_target_properties(air_modes PROPERTIES DEFINE_SYMBOL "AIR_MODES_EXPORTS")
 set_target_properties(air_modes PROPERTIES SOVERSION "${gr-gr-air-modes_VERSION_MAJOR}")
 set_target_properties(air_modes PROPERTIES VERSION "${gr-gr-air-modes_VERSION_MAJOR}.${gr-gr-air-modes_VERSION_MINOR}")
 
+if(APPLE)
+    set_target_properties(air_modes PROPERTIES
+        INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib"
+    )
+endif(APPLE)
+
 ########################################################################
 # Install built library files
 ########################################################################
